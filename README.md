@@ -2,7 +2,7 @@
 Stay Awake is a simple app that prevents your computer from going to sleep.  
 ![](app.gif)  
 ![](trayMessage.png)  
-![](trayMenu.png  
+![](trayMenu.png)  
 Features:  
   1) Lightweight  
   2) Simple one-button GUI  
