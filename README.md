@@ -5,21 +5,26 @@ Stay Awake is a simple app that prevents your computer from going to sleep.
 ![](trayMessage.png)  
 ![](trayMenu.png)  
   
-Features:  
+**Features:**  
   1) Lightweight  
   2) Simple one-button GUI  
   3) Minimize to tray  
   4) Runs in background  
   
-Specs:  
+**Specs:**  
   1) Python 3.8  
   2) Dependencies: PyQt5, PyAutoGUI  
   3) Compatibility: Windows, MacOS, Linux (only tested on Windows)  
 
-Installation:  
+**Installation:**  
   1) Clone repository  
   2) Install dependencies using pip and requirements.txt file  
   ```
   pip install -r requirements.txt
   ```
   3) Run and enjoy being AFK!!  
+  
+  **How to make an executable:**  
+  1) ```pip install pyinstaller```  
+  2) ``` pyinstaller --onefile main.py --icon=StayAwake.ico --windowed```  
+  
