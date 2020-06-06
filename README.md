@@ -19,7 +19,7 @@ Specs:
 Installation:  
   1) Clone repository  
   2) Install dependencies using pip and requirements.txt file  
-  '''
+  ```
   pip install -r requirements.txt
-  '''
+  ```
   3) Run and enjoy being AFK!!  
