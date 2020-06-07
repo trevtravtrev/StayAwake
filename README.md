@@ -28,5 +28,5 @@ Stay Awake is a simple app that prevents your computer from going to sleep.
   1) ```pip install pyinstaller```  
   2) ``` pyinstaller --onefile main.py --icon=StayAwake.ico --windowed --noconsole --name="Stay Awake"```  
   
-**Executable download to run instantly without any code:**  
-https://github.com/twhite42094/StayAwake/releases  
+**Download and run instantly without any code:**  
+https://github.com/trevtravtrev/StayAwake/releases  
