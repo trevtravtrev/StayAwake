@@ -11,6 +11,7 @@ from PyQt5.QtCore import *
 from PyQt5.QtGui import *
 
 import sys
+import images_qr    # workaround to get it to compile to .exe with pyinstaller
 import StayAwake
 
 # since window is fixed, prevents it from showing small on high resolution screens
@@ -35,19 +36,20 @@ class StayAwakeApp(QtWidgets.QMainWindow):
         super(StayAwakeApp, self).__init__()
         self.ui = StayAwake.Ui_MainWindow()
         self.ui.setupUi(self)
+        self.ui.label_2.setPixmap(QtGui.QPixmap(":icons/32x32.png"))    # set logo in app window (workaround for pyinstaller
+        self.ui.toggle.clicked.connect(self.togglePressed)  # listener for when toggle button is pressed
 
         self.running = False  # flag to check if program is on or off
         self.preventSleep = None  # initializing to hold PreventSleep instance
         self.trayIcon = None  # initializing to hold tray icon instance
 
-        self.ui.toggle.clicked.connect(self.togglePressed)  # listener for when toggle button is pressed
-
         self.setupTray()  # setup tray icon and menu
+
 
     # setup tray icon and menu
     def setupTray(self):
         self.trayIcon = QSystemTrayIcon(self)  # instance of QSystemTrayIcon
-        self.trayIcon.setIcon(QIcon("icons\StayAwakeOpaque.ico"))  # set tray icon image
+        self.trayIcon.setIcon(QIcon(":icons/StayAwakeOpaque.ico"))  # set tray icon image
 
         openAction = QAction("Open", self)  # "open" right click option in tray
         quitAction = QAction("Quit", self)  # "quit" right click option in tray
@@ -85,11 +87,11 @@ class StayAwakeApp(QtWidgets.QMainWindow):
 # set icon for window
 def setAppIcon():
     appIcon = QtGui.QIcon()  # create instance of QIcon class
-    appIcon.addFile('icons/16x16.png', QtCore.QSize(16, 16))    # adding different sized icons
-    appIcon.addFile('icons/32x32.png', QtCore.QSize(32, 32))
-    appIcon.addFile('icons/48x48.png', QtCore.QSize(48, 48))
-    appIcon.addFile('icons/192x192.png', QtCore.QSize(192, 192))
-    appIcon.addFile('icons/512x512.png', QtCore.QSize(512, 512))
+    appIcon.addFile(':icons/16x16.png', QtCore.QSize(16, 16))    # adding different sized icons
+    appIcon.addFile(':icons/32x32.png', QtCore.QSize(32, 32))
+    appIcon.addFile(':icons/48x48.png', QtCore.QSize(48, 48))
+    appIcon.addFile(':icons/192x192.png', QtCore.QSize(192, 192))
+    appIcon.addFile(':icons/512x512.png', QtCore.QSize(512, 512))
     app.setWindowIcon(appIcon)  # set correct window icon
 
 

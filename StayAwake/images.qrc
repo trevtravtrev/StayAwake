@@ -1,0 +1,11 @@
+<RCC>
+  <qresource prefix="/" >
+    <file>icons/16x16.png</file>
+    <file>icons/32x32.png</file>
+    <file>icons/48x48.png</file>
+	<file>icons/192x192.png</file>
+    <file>icons/512x512.png</file>
+    <file>icons/StayAwake.ico</file>
+    <file>icons/StayAwakeOpaque.ico</file>
+  </qresource>
+</RCC>
