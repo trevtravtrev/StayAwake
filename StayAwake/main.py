@@ -51,6 +51,7 @@ class StayAwakeApp(QtWidgets.QMainWindow):
     def trayIconSingleClick(self, reason):
         if reason == self.trayIcon.Trigger:
             self.showNormal()
+            self.activateWindow()
 
     # setup tray icon and menu
     def setupTray(self):
