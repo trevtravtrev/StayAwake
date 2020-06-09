@@ -28,8 +28,7 @@ class PreventSleep(QThread):
         while True:
             press('f24')  # press f24 key to prevent sleep
             sleep(60)  # wait 1 minute
-
-
+   
 # main GUI class, inherits from QMainWindow
 class StayAwakeApp(QtWidgets.QMainWindow):
     def __init__(self):
@@ -45,7 +44,11 @@ class StayAwakeApp(QtWidgets.QMainWindow):
         self.status = "off"
 
         self.setupTray()  # setup tray icon and menu
-
+       
+    #handle double click event
+    def handleDoubleClick(self,reason):
+        if reason == self.trayIcon.DoubleClick:
+           self.showNormal()
 
     # setup tray icon and menu
     def setupTray(self):
@@ -61,7 +64,14 @@ class StayAwakeApp(QtWidgets.QMainWindow):
         trayMenu.addAction(openAction)  # add open action
         trayMenu.addAction(quitAction)  # add quit action
         self.trayIcon.setContextMenu(trayMenu)  # sets menu actions
+        self.trayIcon.activated.connect(self.handleDoubleClick) # Icon clicked trigger
         self.trayIcon.show()  # makes tray icon visible
+       
+    
+
+   
+
+
 
     # handle toggle button states and calling prevent sleep
     def togglePressed(self):
