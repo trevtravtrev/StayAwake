@@ -11,7 +11,7 @@ from PyQt5.QtCore import *
 from PyQt5.QtGui import *
 
 import sys
-import images_qr    # workaround to get it to compile to .exe with pyinstaller
+import images_qr  # workaround to get it to compile to .exe with pyinstaller
 import StayAwake
 
 # since window is fixed, prevents it from showing small on high resolution screens
@@ -28,14 +28,16 @@ class PreventSleep(QThread):
         while True:
             press('f24')  # press f24 key to prevent sleep
             sleep(60)  # wait 1 minute
-   
+
+
 # main GUI class, inherits from QMainWindow
 class StayAwakeApp(QtWidgets.QMainWindow):
     def __init__(self):
         super(StayAwakeApp, self).__init__()
         self.ui = StayAwake.Ui_MainWindow()
         self.ui.setupUi(self)
-        self.ui.label_2.setPixmap(QtGui.QPixmap(":icons/32x32.png"))    # set logo in app window (workaround for pyinstaller)
+        self.ui.label_2.setPixmap(
+            QtGui.QPixmap(":icons/32x32.png"))  # set logo in app window (workaround for pyinstaller)
         self.ui.toggle.clicked.connect(self.togglePressed)  # listener for when toggle button is pressed
 
         self.running = False  # flag to check if program is on or off
@@ -44,17 +46,18 @@ class StayAwakeApp(QtWidgets.QMainWindow):
         self.status = "off"
 
         self.setupTray()  # setup tray icon and menu
-       
-    #handle double click event
-    def handleDoubleClick(self,reason):
-        if reason == self.trayIcon.DoubleClick:
-           self.showNormal()
+
+    # handle single click on tray icon event
+    def trayIconSingleClick(self, reason):
+        if reason == self.trayIcon.Trigger:
+            self.showNormal()
 
     # setup tray icon and menu
     def setupTray(self):
         self.trayIcon = QSystemTrayIcon(self)  # instance of QSystemTrayIcon
         self.trayIcon.setIcon(QIcon(":icons/StayAwakeOpaque.ico"))  # set tray icon image
         self.trayIcon.setToolTip("Stay Awake")
+        self.trayIcon.activated.connect(self.trayIconSingleClick)  # Icon clicked trigger
 
         openAction = QAction("Open", self)  # "open" right click option in tray
         quitAction = QAction("Quit", self)  # "quit" right click option in tray
@@ -64,14 +67,7 @@ class StayAwakeApp(QtWidgets.QMainWindow):
         trayMenu.addAction(openAction)  # add open action
         trayMenu.addAction(quitAction)  # add quit action
         self.trayIcon.setContextMenu(trayMenu)  # sets menu actions
-        self.trayIcon.activated.connect(self.handleDoubleClick) # Icon clicked trigger
         self.trayIcon.show()  # makes tray icon visible
-       
-    
-
-   
-
-
 
     # handle toggle button states and calling prevent sleep
     def togglePressed(self):
@@ -101,7 +97,7 @@ class StayAwakeApp(QtWidgets.QMainWindow):
 # set icon for window
 def setAppIcon():
     appIcon = QtGui.QIcon()  # create instance of QIcon class
-    appIcon.addFile(':icons/16x16.png', QtCore.QSize(16, 16))    # adding different sized icons
+    appIcon.addFile(':icons/16x16.png', QtCore.QSize(16, 16))  # adding different sized icons
     appIcon.addFile(':icons/32x32.png', QtCore.QSize(32, 32))
     appIcon.addFile(':icons/48x48.png', QtCore.QSize(48, 48))
     appIcon.addFile(':icons/192x192.png', QtCore.QSize(192, 192))
