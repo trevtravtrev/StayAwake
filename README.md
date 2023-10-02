@@ -1,5 +1,5 @@
 # StayAwake  
-Stay Awake is a simple app that keeps your computer from going to sleep.
+Stay Awake is a minimalist app that keeps your computer from sleeping.
   
 ![](app.gif)  
 ![](trayMessage.png)  
