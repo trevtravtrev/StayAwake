@@ -52,9 +52,6 @@
 1. Install [GitHub Desktop](https://desktop.github.com/) (if not already installed)  
 2. Follow instructions [here](https://docs.github.com/en/desktop/contributing-and-collaborating-using-github-desktop/adding-and-cloning-repositories/cloning-a-repository-from-github-to-github-desktop) to clone
 # Run the Code
-### **While Docker is typically our recommended method for running Python applications, it is important to note that Stay Awake is specifically designed as a Windows desktop application. Consequently, there is no advantage to running it within a Docker container. Additionally, it is worth mentioning that pyqt5 is incompatible with Linux Docker containers. For Stay Awake, we recommend using  Option 2: Poetry to run.**
-
-
 ## Option 1: Poetry (Recommended for StayAwake)
 1. Install Poetry (if not already installed)
 ```
