@@ -4,8 +4,7 @@ PyAutoGUI==0.9.50
 PyGetWindow==0.0.8
 PyMsgBox==1.0.8
 pyperclip==1.8.0
-PyQt5==5.15.0
-PyQt5-sip==12.8.0
+PyQt5==5.15.9
 PyRect==0.1.4
 PyScreeze==0.1.26
 PyTweening==1.0.3

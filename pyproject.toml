@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "stayawake"
+version = "0.1.0"
+description = ""
+authors = ["Trevor White <trevor.white@wayne.edu>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+pyautogui = "0.9.50"
+PyQt5 = "5.15.9"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
